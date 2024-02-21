@@ -1,21 +1,16 @@
 #!/usr/bin/python3
 """
-Your web application must be listening on 0.0.0.0, port 5000
-Routes:
-/: display “Hello HBNB!”
-You must use the option strict_slashes=False in your route definition
+starts a Flask web application
 """
 from flask import Flask
-
 
 app = Flask(__name__)
 
 
-@app.route("/airbnb-onepage/", strict_slashes=False)
-def hello_hbnb():
-    """Return Hello HBNB"""
-    return 'Hello HBNB!'
+@app.route("/")
+def index():
+    return "Hello HBNB!"
 
 
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5000)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port='5000')

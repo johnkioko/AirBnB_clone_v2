@@ -1,11 +1,17 @@
--- Creates a new database hbnb_test_db
--- Create a new user hbnb_test
--- The user's password is hbnb_test_pwd
--- User should have all priviledges
--- hbnb_test should have SELECT privilege on performance_schema
+-- Write a script that prepares a MySQL server for the project
 
+-- create database hbnb_test_db
 CREATE DATABASE IF NOT EXISTS hbnb_test_db;
-CREATE USER IF NOT EXISTS 'hbnb_test'@'localhost' IDENTIFIED BY 'hbnb_test_pwd';
-GRANT ALL PRIVILEGES ON hbnb_test_db.* TO 'hbnb_test'@'localhost';
-GRANT SELECT ON performance_schema.* TO 'hbnb_test'@'localhost';
+
+-- creates new user hbnb_test
+CREATE USER IF NOT EXISTS 'hbnb_test'@'localhost'
+IDENTIFIED BY 'hbnb_test_pwd';
+
+-- grant hbnb_dev all privilege on hbnb_test_db database
+GRANT ALL PRIVILEGES ON hbnb_test_db.*
+TO 'hbnb_test'@'localhost';
+
+-- grant hbnb_test SELECT privilege on performance_schema database
+GRANT SELECT ON performance_schema.*
+TO 'hbnb_test'@'localhost';
 FLUSH PRIVILEGES;
